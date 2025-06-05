@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEvents();
     initializeGallery();
     initializeContactForm();
-    createPlaceholderImages();
+    createPlaceholderAnimations();
 });
 
 // Function to handle navigation behavior and smooth scrolling
@@ -315,55 +315,63 @@ function initializeContactForm() {
     }
 }
 
-// Function to create placeholder images until real images are added
-function createPlaceholderImages() {
-    const placeholderImages = document.querySelectorAll('.placeholder-img');
+// Function to add random subtle animations to placeholder elements
+function createPlaceholderAnimations() {
+    const placeholderIcons = document.querySelectorAll('.placeholder-icon');
     
-    placeholderImages.forEach(img => {
-        // Store original src if it exists
-        const originalSrc = img.getAttribute('src');
-        
-        // If it's a real image path (not just a placeholder path), skip it
-        if (originalSrc && !originalSrc.includes('placeholder')) {
-            return;
-        }
-        
-        // Get parent element dimensions
-        const parent = img.parentElement;
-        const width = parent.offsetWidth || 300;
-        const height = parent.offsetHeight || 200;
-        
-        // Create a canvas element
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        
-        // Set background color
-        ctx.fillStyle = '#f0f0f0';
-        ctx.fillRect(0, 0, width, height);
-        
-        // Draw a placeholder pattern
-        ctx.fillStyle = '#ddd';
-        for (let i = 0; i < width; i += 20) {
-            for (let j = 0; j < height; j += 20) {
-                if ((i + j) % 40 === 0) {
-                    ctx.fillRect(i, j, 10, 10);
-                }
-            }
-        }
-        
-        // Add text if it's in the gallery
-        if (img.closest('.gallery-item')) {
-            const text = img.getAttribute('alt') || 'Image';
-            ctx.font = 'bold 14px Arial';
-            ctx.fillStyle = '#999';
-            ctx.textAlign = 'center';
-            ctx.fillText(text, width / 2, height / 2);
-        }
-        
-        // Set the canvas as the image source
-        img.src = canvas.toDataURL('image/png');
+    // Add subtle animation to icons
+    placeholderIcons.forEach(icon => {
+        // Add a small pulse animation
+        icon.style.animation = 'pulse 2s infinite ease-in-out';
     });
+    
+    // Add CSS for the pulse animation if it doesn't exist
+    if (!document.getElementById('pulse-animation')) {
+        const style = document.createElement('style');
+        style.id = 'pulse-animation';
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.05); opacity: 0.9; }
+                100% { transform: scale(1); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Add shine effect to placeholder lines
+    const placeholderLines = document.querySelectorAll('.placeholder-line');
+    placeholderLines.forEach((line, index) => {
+        // Add a shine animation with staggered delay
+        line.style.position = 'relative';
+        line.style.overflow = 'hidden';
+        
+        // Create shine element
+        const shine = document.createElement('div');
+        shine.style.position = 'absolute';
+        shine.style.top = '0';
+        shine.style.left = '-100%';
+        shine.style.width = '50%';
+        shine.style.height = '100%';
+        shine.style.background = 'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)';
+        shine.style.transform = 'skewX(-25deg)';
+        shine.style.animation = `shine 3s ${index * 0.5}s infinite`;
+        
+        line.appendChild(shine);
+    });
+    
+    // Add CSS for the shine animation if it doesn't exist
+    if (!document.getElementById('shine-animation')) {
+        const style = document.createElement('style');
+        style.id = 'shine-animation';
+        style.textContent = `
+            @keyframes shine {
+                0% { left: -100%; }
+                20% { left: 100%; }
+                100% { left: 100%; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 }
 
