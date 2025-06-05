@@ -270,6 +270,16 @@ header.scrolled {
     padding: 0 2rem;
 }
 
+.logo-link {
+    display: block;
+    max-width: 200px;
+}
+
+.logo-image {
+    width: 100%;
+    height: auto;
+}
+
 header h1 {
     font-size: 1.8rem;
     margin: 0;
@@ -1053,6 +1063,12 @@ footer {
 .footer-logo h2 {
     color: var(--color-white);
     font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-image {
+    max-width: 150px;
+    height: auto;
     margin-bottom: 1rem;
 }
 
