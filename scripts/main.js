@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeMobileMenu();
     initializeScrollEvents();
+    initializePricing();
     initializeGallery();
     initializeContactForm();
     createPlaceholderAnimations();
@@ -124,10 +125,46 @@ function initializeScrollEvents() {
     }
 }
 
+// Function to handle pricing section filtering
+function initializePricing() {
+    const pricingFilterButtons = document.querySelectorAll('.pricing-filter .filter-btn');
+    const pricingItems = document.querySelectorAll('.pricing-item');
+    
+    pricingFilterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            pricingFilterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get filter value
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Filter pricing items
+            pricingItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
 // Function to handle gallery functionality
 function initializeGallery() {
     // Gallery filtering
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    const filterButtons = document.querySelectorAll('.gallery-filter .filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
     
     filterButtons.forEach(button => {
