@@ -33,24 +33,407 @@
     
     <!-- PWA Icons and Manifest -->
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/images/royal-eleganto.png" type="image/png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/images/icons/apple-touch-icon-167x167.png">
-    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#d4af37">
+    <link rel="icon" href="images/icons/source-logo.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/icons/apple-touch-icon-167x167.png">
+    <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#d4af37">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Enhanced styles for Services page */
+        .services-overview {
+            background-color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-overview::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 90% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .service-showcase {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, var(--color-light) 0%, #ffffff 100%);
+            box-shadow: var(--shadow-light);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all var(--transition-medium);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .service-categories {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-categories::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px),
+                repeating-linear-gradient(135deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px);
+            z-index: 1;
+        }
+        
+        .section-header h2, .tab-header h3 {
+            color: var(--color-white);
+        }
+        
+        .category-tabs, .tab-content, .tab-header {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+        
+        .service-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--color-accent);
+            transition: all 0.3s ease;
+        }
+        
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .service-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .service-features span {
+            background: rgba(212, 175, 55, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .service-features span i {
+            color: var(--color-accent);
+        }
+        
+        /* Pricing Section */
+        .pricing-packages {
+            background-color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-packages::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .pricing-filter, .pricing-grid {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .filter-btn {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            border-color: var(--color-accent);
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, var(--color-light) 0%, #ffffff 100%);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Comparison section */
+        .service-comparison {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-comparison::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px),
+                repeating-linear-gradient(135deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px);
+            z-index: 1;
+        }
+        
+        .comparison-tabs, .comparison-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .comparison-tab {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .comparison-tab:hover, .comparison-tab.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-table th {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--color-white);
+            font-weight: 600;
+        }
+        
+        .comparison-table .price {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* FAQ Section */
+        .services-faq {
+            background-color: var(--color-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-faq::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 70% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .faq-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--color-light) 100%);
+            box-shadow: var(--shadow-light);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--color-accent);
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        
+        .faq-toggle {
+            background: var(--color-accent);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+            color: var(--color-white);
+            padding: 5rem 0;
+        }
+        
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px),
+                repeating-linear-gradient(135deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px);
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            color: var(--color-white);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .cta-phone, .cta-email {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-accent);
+        }
+        
+        .cta-phone span, .cta-email span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-container">
             <a href="index.html" class="logo-link">
-                <img src="/images/royal-eleganto.png" alt="Royal Eleganto - Luxury Brand Logo" class="logo-image" loading="lazy">
+                <img src="images/icons/source-logo.png" alt="Royal Eleganto - Luxury Brand Logo" class="logo-image" loading="lazy">
             </a>
             <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                 <span></span>
@@ -1131,9 +1514,9 @@
         <div class="footer-container">
             <div class="footer-logo">
                 <a href="index.html">
-                    <img src="/images/royal-eleganto.png" alt="Royal Eleganto - Luxury Brand Logo" class="footer-logo-image" loading="lazy">
+                    <img src="images/icons/source-logo.png" alt="Royal Eleganto - Luxury Brand Logo" class="footer-logo-image" loading="lazy">
                 </a>
-                <p>Elegance redefined</p>
+                <p>Crafting digital royalty</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -1174,7 +1557,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Royal Eleganto. All rights reserved.</p>
+            <p>&copy; 2023-2025 Royal Eleganto. All rights reserved.</p>
             <div class="footer-bottom-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>

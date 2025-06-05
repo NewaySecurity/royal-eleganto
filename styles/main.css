@@ -251,13 +251,13 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.8rem 0; /* Slightly reduced padding for better proportions */
     transition: all var(--transition-medium);
 }
 
 header.scrolled {
     background-color: rgba(26, 26, 26, 0.95);
-    padding: 0.7rem 0;
+    padding: 0.6rem 0; /* Slightly reduced padding for better proportions */
     box-shadow: var(--shadow-medium);
 }
 
@@ -272,7 +272,7 @@ header.scrolled {
 
 .logo-link {
     display: block;
-    max-width: 200px;
+    max-width: 150px; /* Reduced from 200px for better proportions */
 }
 
 .logo-image {
@@ -1067,7 +1067,7 @@ footer {
 }
 
 .footer-logo-image {
-    max-width: 150px;
+    max-width: 120px; /* Reduced from 150px for better proportions */
     height: auto;
     margin-bottom: 1rem;
 }
@@ -1331,6 +1331,15 @@ footer {
     .footer-logo {
         margin-right: 0;
         text-align: center;
+    }
+    
+    .logo-link {
+        max-width: 120px; /* Even smaller on mobile */
+        margin: 0 auto;
+    }
+    
+    .footer-logo-image {
+        max-width: 100px; /* Even smaller on mobile */
     }
 }
 
