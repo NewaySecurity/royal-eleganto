@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Royal Eleganto - Services & Pricing</title>
+    <meta name="description" content="Explore Royal Eleganto's premium services and pricing. Discover our luxury consultations, custom design, styling services, and support options.">
+    <meta name="keywords" content="luxury services, premium pricing, custom design, styling services, royal eleganto services">
+    <meta name="author" content="Royal Eleganto">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#d4af37">
+    <meta name="application-name" content="Royal Eleganto">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Royal Eleganto">
+    <meta name="msapplication-TileColor" content="#d4af37">
+    <meta name="msapplication-config" content="/images/icons/browserconfig.xml">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Royal Eleganto - Services & Pricing">
+    <meta property="og:description" content="Explore our premium luxury services and pricing options. Find the perfect package for your needs.">
+    <meta property="og:image" content="https://i.ibb.co/WvQtRX0J/Royal-Eleganto.png">
+    <meta property="og:url" content="https://royaleleganto.com/services.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Royal Eleganto - Services & Pricing">
+    <meta name="twitter:description" content="Explore our premium luxury services and pricing options. Find the perfect package for your needs.">
+    <meta name="twitter:image" content="https://i.ibb.co/WvQtRX0J/Royal-Eleganto.png">
+    
+    <!-- PWA Icons and Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/images/royal-eleganto.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/images/icons/apple-touch-icon-167x167.png">
+    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#d4af37">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -12,7 +49,9 @@
 <body>
     <header>
         <div class="header-container">
-            <h1>Royal Eleganto</h1>
+            <a href="index.html" class="logo-link">
+                <img src="/images/royal-eleganto.png" alt="Royal Eleganto - Luxury Brand Logo" class="logo-image" loading="lazy">
+            </a>
             <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
@@ -1091,7 +1130,9 @@
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
-                <h2>Royal Eleganto</h2>
+                <a href="index.html">
+                    <img src="/images/royal-eleganto.png" alt="Royal Eleganto - Luxury Brand Logo" class="footer-logo-image" loading="lazy">
+                </a>
                 <p>Elegance redefined</p>
             </div>
             <div class="footer-links">
@@ -1125,8 +1166,8 @@
                     <div class="newsletter">
                         <h4>Subscribe to our newsletter</h4>
                         <form class="newsletter-form">
-                            <input type="email" placeholder="Enter your email">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                            <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                            <button type="submit" aria-label="Subscribe to newsletter"><i class="fas fa-paper-plane"></i></button>
                         </form>
                     </div>
                 </div>
