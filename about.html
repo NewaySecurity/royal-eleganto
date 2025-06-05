@@ -33,24 +33,232 @@
     
     <!-- PWA Icons and Manifest -->
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/images/icons/source-logo.png" type="image/png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/images/icons/apple-touch-icon-167x167.png">
-    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#d4af37">
+    <link rel="icon" href="images/icons/source-logo.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/icons/apple-touch-icon-167x167.png">
+    <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#d4af37">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Enhanced styles for About page */
+        .about {
+            background-color: var(--color-white);
+            position: relative;
+        }
+        
+        .about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 90% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .mission-vision {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-vision::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px),
+                repeating-linear-gradient(135deg, rgba(212, 175, 55, 0.07) 0px, rgba(212, 175, 55, 0.07) 1px, transparent 1px, transparent 10px);
+            z-index: 1;
+        }
+        
+        .mission-vision-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 4rem;
+        }
+        
+        .mission-box, .vision-box {
+            flex: 1;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform var(--transition-medium);
+        }
+        
+        .mission-box:hover, .vision-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission-box h3, .vision-box h3 {
+            color: var(--color-white);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .mission-box p, .vision-box p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .leadership-team {
+            background-color: var(--color-light);
+            padding: 6rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .team-member {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-medium);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .member-image .placeholder-img {
+            min-height: 250px;
+            border-radius: 0;
+        }
+        
+        .member-info {
+            padding: 1.8rem;
+        }
+        
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .member-info h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .member-title {
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-top: 0.7rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .member-bio {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .why-choose {
+            background-color: var(--color-white);
+            padding: 6rem 0;
+        }
+        
+        .choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .choose-item {
+            background: linear-gradient(135deg, var(--color-light) 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-medium);
+            border-left: 3px solid var(--color-accent);
+        }
+        
+        .choose-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .choose-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .choose-item h4 .emoji {
+            font-size: 1.5rem;
+        }
+        
+        .choose-item p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .mission-vision-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-container">
             <a href="index.html" class="logo-link">
-                <img src="/images/icons/source-logo.png" alt="Royal Eleganto - Luxury Brand Logo" class="logo-image" loading="lazy">
+                <img src="images/icons/source-logo.png" alt="Royal Eleganto - Luxury Brand Logo" class="logo-image" loading="lazy">
             </a>
             <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                 <span></span>
@@ -94,21 +302,22 @@
                         </div>
                     </div>
                     <div class="about-text">
-                        <h3>Luxury & Elegance Defined</h3>
-                        <p>Royal Eleganto was established with a vision to redefine luxury and elegance. Since our inception, we have been dedicated to providing the most sophisticated products and services to our distinguished clientele.</p>
-                        <p>Our commitment to excellence and attention to detail has made us a leader in our industry. We take pride in our heritage of craftsmanship and our ability to blend traditional values with modern innovation.</p>
+                        <h3>Digital Elegance Redefined</h3>
+                        <p>At Royal Eleganto, we don't just build brands — we craft digital royalty.</p>
+                        <p>We are a full-service creative agency rooted in visual artistry, strategic thinking, and technical mastery. Whether it's a logo or a full digital experience, our work is tailored for impact, infused with elegance, and made to stand the test of time.</p>
+                        <p>We believe luxury should be accessible. That's why we've made it our mission to blend high-end creative services with affordability, offering brands the chance to shine—regally and realistically.</p>
                         <div class="about-highlights">
                             <div class="highlight">
                                 <i class="fas fa-crown"></i>
-                                <h4>Premium Quality</h4>
+                                <h4>Creative Excellence</h4>
                             </div>
                             <div class="highlight">
                                 <i class="fas fa-gem"></i>
-                                <h4>Exquisite Design</h4>
+                                <h4>Affordable Luxury</h4>
                             </div>
                             <div class="highlight">
-                                <i class="fas fa-award"></i>
-                                <h4>Award Winning</h4>
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>Innovative Solutions</h4>
                             </div>
                         </div>
                     </div>
@@ -116,109 +325,30 @@
             </div>
         </section>
 
-        <section class="mission-values">
+        <section class="mission-vision">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>Our Mission & Values</h2>
+                    <h2 style="color: var(--color-white);">Our Mission & Vision</h2>
                     <div class="divider"><span></span></div>
-                    <p class="section-subtitle">What drives us forward</p>
+                    <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.7);">What drives our passion</p>
                 </div>
-                <div class="mission-values-content">
+                <div class="mission-vision-content">
                     <div class="mission-box">
-                        <div class="mission-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3>Our Mission</h3>
-                        <p>To elevate everyday experiences through elegant design and exceptional service, making luxury accessible while maintaining the highest standards of quality and craftsmanship.</p>
+                        <h3><span class="emoji">👑</span> Our Mission</h3>
+                        <p>To empower businesses and individuals with iconic branding, flawless design, and cutting-edge digital tools that turn heads and spark loyalty.</p>
                     </div>
-                    <div class="values-container">
-                        <h3>Our Core Values</h3>
-                        <div class="values-grid">
-                            <div class="value-item">
-                                <div class="value-icon">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h4>Excellence</h4>
-                                <p>We strive for perfection in everything we do, setting standards that exceed expectations.</p>
-                            </div>
-                            <div class="value-item">
-                                <div class="value-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <h4>Passion</h4>
-                                <p>Our love for design and beauty drives our creativity and commitment to our craft.</p>
-                            </div>
-                            <div class="value-item">
-                                <div class="value-icon">
-                                    <i class="fas fa-handshake"></i>
-                                </div>
-                                <h4>Integrity</h4>
-                                <p>We conduct business with honesty, transparency, and respect for all stakeholders.</p>
-                            </div>
-                            <div class="value-item">
-                                <div class="value-icon">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <h4>Innovation</h4>
-                                <p>We embrace change and continuously seek new ways to improve and innovate.</p>
-                            </div>
-                        </div>
+                    <div class="vision-box">
+                        <h3><span class="emoji">🧭</span> Our Vision</h3>
+                        <p>To become Africa's most trusted name in affordable luxury design and digital innovation.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="history">
+        <section class="leadership-team">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>Our History</h2>
-                    <div class="divider"><span></span></div>
-                    <p class="section-subtitle">The journey of Royal Eleganto</p>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">2015</div>
-                        <div class="timeline-content">
-                            <h3>Foundation</h3>
-                            <p>Royal Eleganto was founded with a vision to create a design studio that embodies elegance and sophistication.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">2017</div>
-                        <div class="timeline-content">
-                            <h3>Growth & Expansion</h3>
-                            <p>We expanded our team and service offerings to include comprehensive branding and digital strategy services.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">2019</div>
-                        <div class="timeline-content">
-                            <h3>Innovation Focus</h3>
-                            <p>Launched our innovative design approach that combines traditional elegance with modern digital capabilities.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">2022</div>
-                        <div class="timeline-content">
-                            <h3>Award Recognition</h3>
-                            <p>Recognized with multiple industry awards for our outstanding designs and client satisfaction.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">2025</div>
-                        <div class="timeline-content">
-                            <h3>Present Day</h3>
-                            <p>Today, we continue to set the standard for elegant design while expanding our global footprint.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="team">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2>Our Team</h2>
+                    <h2>Our Leadership Team</h2>
                     <div class="divider"><span></span></div>
                     <p class="section-subtitle">The creative minds behind Royal Eleganto</p>
                 </div>
@@ -234,9 +364,9 @@
                             </div>
                         </div>
                         <div class="member-info">
-                            <h3>Alexander Greene</h3>
-                            <p class="member-title">Founder & Creative Director</p>
-                            <p class="member-bio">With over 15 years of experience in luxury design, Alexander leads our creative vision with passion and precision.</p>
+                            <h3>Thapelo Seya</h3>
+                            <p class="member-title">CEO & Graphic Designer</p>
+                            <p class="member-bio">A bold creative and strategic mind, Thapelo wears two crowns — as CEO and as a passionate Graphic Designer. He leads with vision and executes with flair, ensuring that every client feels seen, heard, and celebrated through bespoke, stunning visuals.</p>
                             <div class="member-social">
                                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -254,29 +384,9 @@
                             </div>
                         </div>
                         <div class="member-info">
-                            <h3>Sophia Reynolds</h3>
-                            <p class="member-title">Design Director</p>
-                            <p class="member-bio">Sophia brings innovative design thinking and meticulous attention to detail to every project we undertake.</p>
-                            <div class="member-social">
-                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-image">
-                            <div class="placeholder-img">
-                                <div class="placeholder-content">
-                                    <div class="placeholder-icon">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Marcus Johnson</h3>
-                            <p class="member-title">Technical Director</p>
-                            <p class="member-bio">Marcus ensures our digital solutions are as robust and refined as our designs, leading our technical team.</p>
+                            <h3>Brilliant Mashele</h3>
+                            <p class="member-title">CTO & Graphic Designer</p>
+                            <p class="member-bio">Brilliant is the powerhouse where art meets algorithm. As CTO and a seasoned Graphic Designer, he merges beauty with logic, building both the visual language of brands and the secure, scalable systems they rest upon.</p>
                             <div class="member-social">
                                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -294,14 +404,42 @@
                             </div>
                         </div>
                         <div class="member-info">
-                            <h3>Olivia Chen</h3>
-                            <p class="member-title">Client Relations Manager</p>
-                            <p class="member-bio">Olivia's exceptional interpersonal skills ensure our clients receive the royal treatment they deserve.</p>
+                            <h3>Kyle Smith</h3>
+                            <p class="member-title">COO & Painter</p>
+                            <p class="member-bio">Kyle is the creative tactician of Royal Eleganto. As COO and a fine artist at heart, he approaches every project with both discipline and inspiration. His background in painting brings a unique emotional depth to our visual storytelling.</p>
                             <div class="member-social">
                                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="why-choose">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Why Choose Royal Eleganto</h2>
+                    <div class="divider"><span></span></div>
+                    <p class="section-subtitle">What sets us apart</p>
+                </div>
+                <div class="choose-grid">
+                    <div class="choose-item">
+                        <h4><span class="emoji">💎</span> Affordable Elegance</h4>
+                        <p>Stunning visuals and services that respect your budget while maintaining a luxury feel.</p>
+                    </div>
+                    <div class="choose-item">
+                        <h4><span class="emoji">🎨</span> Creative-Led Strategy</h4>
+                        <p>Every move we make is powered by artistry and intelligence working in harmony.</p>
+                    </div>
+                    <div class="choose-item">
+                        <h4><span class="emoji">🔄</span> Complete Brand Support</h4>
+                        <p>From concept to code, we bring every element of your brand to life with precision.</p>
+                    </div>
+                    <div class="choose-item">
+                        <h4><span class="emoji">👑</span> People First, Always</h4>
+                        <p>You're not just a client. You're royalty, and we treat you accordingly.</p>
                     </div>
                 </div>
             </div>
@@ -310,44 +448,44 @@
         <section class="culture">
             <div class="section-container">
                 <div class="section-header">
-                    <h2>Our Culture</h2>
+                    <h2>Our Creative Culture</h2>
                     <div class="divider"><span></span></div>
-                    <p class="section-subtitle">What makes Royal Eleganto special</p>
+                    <p class="section-subtitle">The Royal Eleganto experience</p>
                 </div>
                 <div class="culture-content">
                     <div class="culture-text">
-                        <h3>A Culture of Excellence</h3>
-                        <p>At Royal Eleganto, we cultivate a culture that celebrates creativity, fosters collaboration, and rewards excellence. Our team members are encouraged to push boundaries, share ideas, and pursue continuous growth.</p>
-                        <p>We believe that our internal culture directly influences the quality of work we deliver to our clients. That's why we prioritize creating a supportive environment where talent can flourish and innovation can thrive.</p>
+                        <h3>A Culture of Creativity & Excellence</h3>
+                        <p>At Royal Eleganto, we've built a culture that celebrates bold creativity, fosters genuine collaboration, and delivers excellence. As a young agency, we bring fresh perspectives and boundless energy to every project.</p>
+                        <p>We believe that our internal culture directly influences the quality of work we deliver. That's why we prioritize creating a supportive environment where talent flourishes and innovation thrives without bureaucratic constraints.</p>
                     </div>
                     <div class="culture-features">
                         <div class="culture-feature">
                             <div class="feature-icon">
-                                <i class="fas fa-brain"></i>
+                                <i class="fas fa-bolt"></i>
                             </div>
-                            <h4>Creative Freedom</h4>
-                            <p>We encourage exploration and creative expression in all aspects of our work.</p>
+                            <h4>Creative Boldness</h4>
+                            <p>We take creative risks and explore uncharted territories to deliver truly distinctive work.</p>
                         </div>
                         <div class="culture-feature">
                             <div class="feature-icon">
                                 <i class="fas fa-users"></i>
                             </div>
                             <h4>Collaborative Spirit</h4>
-                            <p>We believe the best results come from teamwork and shared perspectives.</p>
+                            <p>We believe the best results come from diverse minds working together with mutual respect.</p>
                         </div>
                         <div class="culture-feature">
                             <div class="feature-icon">
-                                <i class="fas fa-graduation-cap"></i>
+                                <i class="fas fa-rocket"></i>
                             </div>
-                            <h4>Continuous Learning</h4>
-                            <p>We invest in ongoing education and professional development for our team.</p>
+                            <h4>Agile Innovation</h4>
+                            <p>Our nimble team moves quickly, adapting to changes and embracing new technologies.</p>
                         </div>
                         <div class="culture-feature">
                             <div class="feature-icon">
-                                <i class="fas fa-balance-scale"></i>
+                                <i class="fas fa-heart"></i>
                             </div>
-                            <h4>Work-Life Balance</h4>
-                            <p>We value well-being and support a healthy balance between work and personal life.</p>
+                            <h4>Passion-Driven</h4>
+                            <p>We bring genuine passion to every project, infusing our work with energy and dedication.</p>
                         </div>
                     </div>
                 </div>
@@ -359,9 +497,9 @@
         <div class="footer-container">
             <div class="footer-logo">
                 <a href="index.html">
-                    <img src="/images/icons/source-logo.png" alt="Royal Eleganto - Luxury Brand Logo" class="footer-logo-image" loading="lazy">
+                    <img src="images/icons/source-logo.png" alt="Royal Eleganto - Luxury Brand Logo" class="footer-logo-image" loading="lazy">
                 </a>
-                <p>Elegance redefined</p>
+                <p>Crafting digital royalty</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -402,7 +540,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Royal Eleganto. All rights reserved.</p>
+            <p>&copy; 2023-2025 Royal Eleganto. All rights reserved.</p>
             <div class="footer-bottom-links">
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms-of-service.html">Terms of Service</a>
