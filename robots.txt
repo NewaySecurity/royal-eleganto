@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /scripts/
+Disallow: /styles/
+Disallow: /images/icons/
+
+# Allow all crawlers to crawl public pages
+User-agent: *
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /gallery.html
+Allow: /contact.html
+Allow: /privacy-policy.html
+Allow: /terms-of-service.html
+
+# Sitemap location
+Sitemap: https://royaleleganto.com/sitemap.xml
+
