@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Royal Eleganto - Contact Us</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Royal Eleganto</h1>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <h2>Contact Us</h2>
+                <div class="divider"><span></span></div>
+                <p>We'd love to hear from you</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Get in Touch</h2>
+                    <div class="divider"><span></span></div>
+                    <p class="section-subtitle">Reach out to discuss your project or inquire about our services</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Our Location</h3>
+                                <p>123 Royal Avenue<br>Luxury District<br>Johannesburg, 2000<br>South Africa</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Phone Numbers</h3>
+                                <p>+27 67 493 9784<br>+27 72 879 8401</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Address</h3>
+                                <p>info@royaleleganto.com<br>support@royaleleganto.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Operating Hours</h3>
+                                <p>Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <h3>Connect With Us</h3>
+                            <div class="social-icons">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <h3>Send Us a Message</h3>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service of Interest <span class="required">*</span></label>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="web-design">Website Design</option>
+                                    <option value="branding">Logo & Branding</option>
+                                    <option value="print">Print Design</option>
+                                    <option value="digital-marketing">Digital Marketing</option>
+                                    <option value="ui-ux">UI/UX Design</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="other">Other Services</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message <span class="required">*</span></label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group form-checkbox">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">I consent to having Royal Eleganto collect and process my data through this form. <span class="required">*</span></label>
+                                <span class="error-message"></span>
+                            </div>
+                            <p class="privacy-notice">Your personal information will be handled in accordance with our <a href="#">Privacy Policy</a>. We use this information solely to respond to your inquiry and will never share it with third parties without your explicit consent.</p>
+                            <button type="submit" class="btn-primary">Send Message</button>
+                            <div id="form-success" class="form-success">Your message has been sent successfully! We'll get back to you shortly.</div>
+                            <div id="form-error" class="form-error">There was an error sending your message. Please try again or contact us directly.</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="location-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Our Location</h2>
+                    <div class="divider"><span></span></div>
+                    <p class="section-subtitle">Visit our elegant office space</p>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3 class="placeholder-title">Map Location</h3>
+                            <div class="placeholder-line"></div>
+                            <p class="placeholder-text">Interactive map would be displayed here</p>
+                        </div>
+                    </div>
+                    <div class="map-details">
+                        <div class="detail-item">
+                            <h3><i class="fas fa-directions"></i> Directions</h3>
+                            <p>Located in the heart of the Luxury District, our office is easily accessible from major highways and public transportation routes.</p>
+                        </div>
+                        <div class="detail-item">
+                            <h3><i class="fas fa-car"></i> Parking</h3>
+                            <p>Complimentary parking is available for clients in our dedicated parking area. Please inform us of your visit in advance to secure your spot.</p>
+                        </div>
+                        <div class="detail-item">
+                            <h3><i class="fas fa-building"></i> Office Environment</h3>
+                            <p>Our design studio showcases our commitment to elegance and sophistication. We welcome you to visit our space and experience our design philosophy firsthand.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="divider"><span></span></div>
+                    <p class="section-subtitle">Quick answers to common inquiries</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is the typical response time for inquiries?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We typically respond to all inquiries within 24 business hours. For urgent matters, we recommend calling our office directly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer consultations before starting a project?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer complimentary initial consultations to discuss your project needs, timeline, and budget. This can be done in person at our office, via phone, or through video conferencing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What information should I prepare before contacting you?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To make our initial conversation most productive, it's helpful to have a general idea of your project scope, timeline, budget parameters, and any design preferences or examples of work you admire. This helps us understand your vision more quickly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you work with clients outside of South Africa?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We work with clients globally and have experience managing remote projects efficiently. We use various digital collaboration tools to ensure smooth communication and project delivery regardless of location.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta">
+            <div class="section-container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Brand?</h2>
+                    <p>Reach out today and let's begin crafting something exceptional together.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact-form" class="btn-primary">Contact Us Now</a>
+                        <a href="tel:+27674939784" class="btn-secondary"><i class="fas fa-phone-alt"></i> Call Directly</a>
+                    </div>
+                    <div class="cta-contact">
+                        <div class="cta-phone">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>067 493 9784 | 072 879 8401</span>
+                        </div>
+                        <div class="cta-email">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@royaleleganto.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Royal Eleganto</h2>
+                <p>Elegance redefined</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#luxury-consultations">Luxury Consultations</a></li>
+                        <li><a href="services.html#custom-design">Custom Design</a></li>
+                        <li><a href="services.html#styling-services">Styling Services</a></li>
+                        <li><a href="services.html#premium-support">Premium Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to our newsletter</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Royal Eleganto. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+
