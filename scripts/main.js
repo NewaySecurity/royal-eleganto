@@ -1,3 +1,190 @@
+import Navigation from './modules/navigation.js';
+import Forms from './modules/forms.js';
+import Gallery from './modules/gallery.js';
+import Animation from './modules/animation.js';
+import Utils from './modules/utils.js';
+import Pwa from './modules/pwa.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize modules
+  try {
+    Navigation.initNavigation();
+    Forms.initForms();
+    Gallery.initGallery();
+    Animation.initAnimations();
+    Pwa.initPwa();
+  } catch (error) {
+    Utils.handleError(error, true);
+  }
+
+  // Set up performance monitoring
+  if (Utils.ENV.current === Utils.ENV.DEVELOPMENT) {
+    Animation.initPerformanceMonitoring();
+  }
+
+  // Check service worker support and register service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(error => {
+          console.error('ServiceWorker registration failed: ', error);
+        });
+    });
+  }
+});
+
+// Main JavaScript file for Royal Eleganto website
+
+// WhatsApp Form Handler
+function handleContactForm(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const serviceEl = document.getElementById('service');
+    const service = serviceEl.options[serviceEl.selectedIndex].text;
+    const message = document.getElementById('message').value;
+    
+    // Format message for WhatsApp
+    const whatsappMessage = `*New Contact Form Submission*\n\n` +
+        `*Name:* ${name}\n` +
+        `*Email:* ${email}\n` +
+        `*Phone:* ${phone || 'Not provided'}\n` +
+        `*Service:* ${service}\n` +
+        `*Message:* ${message}`;
+    
+    // Open WhatsApp with pre-filled message
+    window.open(`https://wa.me/27674939784?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+    
+    // Show success message
+    const successDiv = document.getElementById('form-success');
+    if (successDiv) {
+        successDiv.style.display = 'block';
+        setTimeout(() => {
+            successDiv.style.display = 'none';
+        }, 5000);
+    }
+    
+    // Reset form
+    event.target.reset();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle mobile menu
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    }
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Back to top button
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Gallery filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter gallery items
+                const galleryItems = document.querySelectorAll('.gallery-item, .pricing-item');
+                
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                    } else if (item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+    
+    // FAQ accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    if (faqQuestions.length > 0) {
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                // Toggle active class on question
+                this.classList.toggle('active');
+                
+                // Toggle icon
+                const icon = this.querySelector('.faq-toggle i');
+                if (icon.classList.contains('fa-plus')) {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                } else {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                }
+                
+                // Toggle answer visibility
+                const answer = this.nextElementSibling;
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+    }
+    
+    // Contact form
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactForm);
+    }
+});
+
 // Main JavaScript file for Royal Eleganto website
 
 // Wait for the DOM to be fully loaded

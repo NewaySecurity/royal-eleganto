@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>You're Offline - Royal Eleganto</title>
+    <meta name="description" content="Royal Eleganto - Currently offline. Some features are still available while you're offline.">
+    
+    <link rel="icon" href="/images/royal-eleganto.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        .offline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .offline-icon {
+            font-size: 4rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .offline-badge {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .offline-features {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .offline-features ul {
+            padding-left: 1.5rem;
+        }
+        
+        .offline-features li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .retry-button {
+            margin: 1.5rem 0;
+        }
+        
+        .offline-instructions {
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .offline-contact {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img src="/images/royal-eleganto.png" alt="Royal Eleganto - Luxury Brand Logo" class="logo-image" loading="lazy">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="offline-section">
+            <div class="offline-container">
+                <div class="offline-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                
+                <div class="offline-badge">
+                    <i class="fas fa-exclamation-circle"></i> You're Offline
+                </div>
+                
+                <h1>No Internet Connection</h1>
+                
+                <p>It appears that you're currently offline. Don't worry - Royal Eleganto is designed to work offline with limited functionality.</p>
+                
+                <div class="retry-button">
+                    <button id="retry-connection" class="btn-primary">
+                        <i class="fas fa-sync-alt"></i> Retry Connection
+                    </button>
+                </div>
+                
+                <div class="offline-features">
+                    <h2>Available Offline Features:</h2>
+                    <ul>
+                        <li>View previously visited pages</li>
+                        <li>Browse cached images in the gallery</li>
+                        <li>Access saved service information</li>
+                        <li>View saved contact information</li>
+                    </ul>
+                </div>
+                
+                <div class="offline-instructions">
+                    <h3>Using Royal Eleganto Offline</h3>
+                    <p>Some features require an internet connection, but you can still explore content you've previously viewed. Once your connection is restored, all features will be available again.</p>
+                    <p>If you're trying to submit a contact form, your information will be saved and sent automatically when you're back online.</p>
+                </div>
+                
+                <div class="offline-contact">
+                    <h3>Need Assistance?</h3>
+                    <p>If you urgently need to contact us, please try:</p>
+                    <p><i class="fas fa-phone"></i> +27 67 493 9784</p>
+                    <p><i class="fas fa-envelope"></i> contact@royaleleganto.com</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="index.html">
+                    <img src="/images/royal-eleganto.png" alt="Royal Eleganto - Luxury Brand Logo" class="footer-logo-image" loading="lazy">
+                </a>
+                <p>Elegance redefined</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Royal Eleganto. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add functionality to retry connection button
+        document.getElementById('retry-connection').addEventListener('click', function() {
+            // Change button text to show loading state
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Checking Connection...';
+            this.disabled = true;
+            
+            // Attempt to reload the page after a brief delay
+            setTimeout(function() {
+                window.location.reload();
+            }, 1500);
+        });
+        
+        // Check if we're online now
+        window.addEventListener('online', function() {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
+
