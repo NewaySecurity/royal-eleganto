@@ -1,0 +1,10 @@
+This directory will contain all images for the Royal Eleganto website.
+
+Recommended images to create/source:
+- hero-placeholder.jpg (A high-quality elegant background image for the hero section)
+- about-placeholder.jpg (An image representing the company/brand)
+- gallery-placeholder-1.jpg through gallery-placeholder-6.jpg (Images for the gallery section)
+- Logos, icons, and other brand-related imagery
+
+Note: For a production website, replace all placeholder images with high-quality, optimized images that represent the Royal Eleganto brand.
+

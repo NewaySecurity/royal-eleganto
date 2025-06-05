@@ -5,52 +5,360 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Royal Eleganto</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Royal Eleganto</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <h1>Royal Eleganto</h1>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <h2>Welcome to Royal Eleganto</h2>
-            <p>Your destination for elegance and style</p>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Royal Eleganto</h2>
+                <p>Your destination for elegance and style</p>
+                <a href="#services" class="btn-primary">Explore Our Services</a>
+            </div>
         </section>
 
-        <section class="features">
-            <h2>Our Services</h2>
-            <div class="feature-container">
-                <!-- Feature items will go here -->
-                <div class="feature-item">
-                    <h3>Feature 1</h3>
-                    <p>Description of feature 1</p>
+        <section id="about" class="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>About Us</h2>
+                    <div class="divider"><span></span></div>
                 </div>
-                <div class="feature-item">
-                    <h3>Feature 2</h3>
-                    <p>Description of feature 2</p>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/about-placeholder.jpg" alt="About Royal Eleganto" class="placeholder-img">
+                    </div>
+                    <div class="about-text">
+                        <h3>Luxury & Elegance Defined</h3>
+                        <p>Royal Eleganto was established with a vision to redefine luxury and elegance. Since our inception, we have been dedicated to providing the most sophisticated products and services to our distinguished clientele.</p>
+                        <p>Our commitment to excellence and attention to detail has made us a leader in our industry. We take pride in our heritage of craftsmanship and our ability to blend traditional values with modern innovation.</p>
+                        <div class="about-highlights">
+                            <div class="highlight">
+                                <i class="fas fa-crown"></i>
+                                <h4>Premium Quality</h4>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-gem"></i>
+                                <h4>Exquisite Design</h4>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-award"></i>
+                                <h4>Award Winning</h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <h3>Feature 3</h3>
-                    <p>Description of feature 3</p>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <div class="divider"><span></span></div>
+                    <p class="section-subtitle">Experience excellence in every detail</p>
+                </div>
+                <div class="service-showcase">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h3>Luxury Consultations</h3>
+                        <p>Personalized consultation services tailored to your unique preferences and requirements.</p>
+                        <a href="#contact" class="btn-secondary">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Custom Design</h3>
+                        <p>Bespoke design services creating unique solutions that reflect your personal style.</p>
+                        <a href="#contact" class="btn-secondary">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Styling Services</h3>
+                        <p>Expert styling advice and services to enhance your personal or professional spaces.</p>
+                        <a href="#contact" class="btn-secondary">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Premium Support</h3>
+                        <p>Ongoing support and maintenance services to preserve the elegance of your investments.</p>
+                        <a href="#contact" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Our Gallery</h2>
+                    <div class="divider"><span></span></div>
+                    <p class="section-subtitle">A glimpse into our world of elegance</p>
+                </div>
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                    <button class="filter-btn" data-filter="luxury">Luxury</button>
+                    <button class="filter-btn" data-filter="styling">Styling</button>
+                </div>
+                <div class="gallery-grid">
+                    <!-- Images will be populated from JS for the demo, but adding placeholders here -->
+                    <div class="gallery-item" data-category="design">
+                        <div class="gallery-image">
+                            <img src="images/gallery-placeholder-1.jpg" alt="Gallery Image 1" class="placeholder-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Elegant Design</h3>
+                                    <p>Luxury interior concept</p>
+                                    <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="luxury">
+                        <div class="gallery-image">
+                            <img src="images/gallery-placeholder-2.jpg" alt="Gallery Image 2" class="placeholder-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Luxury Collection</h3>
+                                    <p>Premium materials</p>
+                                    <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="styling">
+                        <div class="gallery-image">
+                            <img src="images/gallery-placeholder-3.jpg" alt="Gallery Image 3" class="placeholder-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Style Innovation</h3>
+                                    <p>Contemporary elegance</p>
+                                    <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="design">
+                        <div class="gallery-image">
+                            <img src="images/gallery-placeholder-4.jpg" alt="Gallery Image 4" class="placeholder-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Design Excellence</h3>
+                                    <p>Innovative concepts</p>
+                                    <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="luxury">
+                        <div class="gallery-image">
+                            <img src="images/gallery-placeholder-5.jpg" alt="Gallery Image 5" class="placeholder-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Luxury Experience</h3>
+                                    <p>Exquisite details</p>
+                                    <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="styling">
+                        <div class="gallery-image">
+                            <img src="images/gallery-placeholder-6.jpg" alt="Gallery Image 6" class="placeholder-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Styling Mastery</h3>
+                                    <p>Perfect arrangements</p>
+                                    <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="gallery-modal" class="modal">
+                    <span class="modal-close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                    <div id="modal-caption"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Contact Us</h2>
+                    <div class="divider"><span></span></div>
+                    <p class="section-subtitle">We'd love to hear from you</p>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Our Location</h3>
+                                <p>123 Eleganto Avenue<br>Luxury District, LX 10001</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Phone Number</h3>
+                                <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Address</h3>
+                                <p>info@royaleleganto.com<br>support@royaleleganto.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Opening Hours</h3>
+                                <p>Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" disabled selected>Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="services">Services Information</option>
+                                    <option value="appointment">Schedule an Appointment</option>
+                                    <option value="feedback">Feedback</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group form-checkbox">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">I consent to having Royal Eleganto collect my data through this form.</label>
+                                <span class="error-message"></span>
+                            </div>
+                            <button type="submit" class="btn-primary">Send Message</button>
+                            <div id="form-success" class="form-success">Your message has been sent successfully!</div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Royal Eleganto. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Royal Eleganto</h2>
+                <p>Elegance redefined</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Luxury Consultations</a></li>
+                        <li><a href="#services">Custom Design</a></li>
+                        <li><a href="#services">Styling Services</a></li>
+                        <li><a href="#services">Premium Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to our newsletter</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Royal Eleganto. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
     </footer>
 
+    <a href="#hero" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></a>
     <script src="scripts/main.js"></script>
 </body>
 </html>
